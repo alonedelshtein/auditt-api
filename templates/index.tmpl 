@@ -1,0 +1,50 @@
+{{ define "gridview" }}
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+        <h1>
+            Pull Requests
+        </h1>
+    </head>
+    <body>
+        <table class="styled-table">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">URL</th>
+                <th scope="col">Body</th>
+                <th scope="col">User</th>
+                <th scope="col">Created Time</th>
+                <th scope="col">Updated Time</th>
+                <th scope="col">Merged Time</th>
+                <th scope="col">Closed Time</th>
+                <th scope="col">Screenshot Link</th>
+                <th scope="col">RawData</th>
+            </tr>
+            {{ range $index,$pr := .prs }}
+                <tr class="active-row">
+                    <td>{{ .Id }}</td>
+                    <td>{{ .Title }}</td>
+                    <td>
+                        <a href="{{ .URL }}" target="_blank" rel="noopener noreferrer">{{ .URL }}</a>
+                    </td>
+                    <td>{{ .Body }}</td>
+                    <td>{{ .User }}</td>
+                    <td>{{ .Created }}</td>
+                    <td>{{ .Updated }}</td>
+                    <td>{{ .Merged }}</td>
+                    <td>{{ .Closed }}</td>
+                    <td>
+                        <a href="{{ .Screenshot }}" target="_blank" rel="noopener noreferrer">{{ .Title }}</a>
+                    </td>
+                    
+                    <td>
+                        <a href="{{ .RawData }}" target="_blank" rel="noopener noreferrer">{{ .RawData }}</a>
+                    </td>
+                </tr>
+            {{ end}}
+        </table>
+    </body>
+    <hr/>
+</html>
+{{ end }}
