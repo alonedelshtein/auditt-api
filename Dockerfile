@@ -19,11 +19,5 @@ COPY --from=builder /app/css/ ./css
 RUN apk add chromium
 RUN apk add aws-cli
 
-ENV AWS_ACCESS_KEY_ID "AKIA4CSE36KEA55VQ67C"
-ENV AWS_SECRET_ACCESS_KEY "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"
-ENV AWS_DEFAULT_REGION "eu-central-1"
-ENV AWS_DEFAULT_OUTPUT "json"
-
-
 # Command to run when starting the container
 CMD ["./auditt-api"]
